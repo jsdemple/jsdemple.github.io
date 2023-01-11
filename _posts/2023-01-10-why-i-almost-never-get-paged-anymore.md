@@ -16,7 +16,7 @@ It is such a relief to rarely be paged! As I thought about this I started to con
 
 I will cover the first one in this article.
 
-![](../images/impressionist painting of scientists working in a lab.jpeg)
+![impressionist painting of scientists working in a lab](/images/impressionist painting of scientists working in a lab.jpeg)
 ### Adding logging, testing, metrics, alarming to all our services
 This was a major shift for me. We always had tools for all these things at Drift, but as a newer NLP Engineer I had zero experience with automated testing. When I first started working at Drift almost all our work in the AI lab was done in a single large repo that had grown more complex with each year. There were massive libraries that interacted with each other and you had to know how everything fit together in order to work on any part of it. Back then the general development process was to build a dialogue agent locally and run it in a dev environment locally. After making a change I’d build an agent using the data from one or two of the clients and then start a conversation with the agent using roughly the same set of inputs I would always use. If my tests failed I’d set some breakpoints, investigate, rebuild, and retest until I was satisfied my changes probably wouldn’t cause any problems. Besides untangling some of the spaghetti that began to grow, what we desperately needed was testing.
 
@@ -28,7 +28,7 @@ As time went on I had more opportunities to create new services myself and to co
 
 Over the following months and years I would create a new service or inherit one from another team or engineer and see how I could add tests, metrics, alarms, and logging.
 
-![](../images/abstract-painting-empty-business-meeting-room.jpeg)
+![abstract-painting-empty-business-meeting-room](/images/abstract-painting-empty-business-meeting-room.jpeg)
 ### False start
 As time went on, we had engineers leave and new engineers join and soon the size of our AI lab doubled in size. I started to become an expert on testing relative to the other members of the lab so I decided now was the time to start spreading my knowledge and get others to adopt these best practices.
 
