@@ -1,5 +1,4 @@
 ## Why I Almost Never Get Paged Anymore
-
 ### Gone are the hard drives
 The other night I awoke to the barbershop quartet piece “Gone are the hard drives of all those golden days” (I love PagerDuty’s custom alarm tones). It was 3:00 am and I had been paged by an automated alarm. I squinted at the blinding light of my phone and crawled out of bed to retrieve my work laptop before burying myself in the covers once again, but with my head propped up with another pillow. I followed the links to the grafana dashboard, logs, and followed the prescribed steps in the runbook to investigate and triage the problem. 
 
@@ -17,6 +16,7 @@ It is such a relief to rarely be paged! As I thought about this I started to con
 
 I will cover the first one in this article.
 
+![](../images/impressionist painting of scientists working in a lab.jpeg)
 ### Adding logging, testing, metrics, alarming to all our services
 This was a major shift for me. We always had tools for all these things at Drift, but as a newer NLP Engineer I had zero experience with automated testing. When I first started working at Drift almost all our work in the AI lab was done in a single large repo that had grown more complex with each year. There were massive libraries that interacted with each other and you had to know how everything fit together in order to work on any part of it. Back then the general development process was to build a dialogue agent locally and run it in a dev environment locally. After making a change I’d build an agent using the data from one or two of the clients and then start a conversation with the agent using roughly the same set of inputs I would always use. If my tests failed I’d set some breakpoints, investigate, rebuild, and retest until I was satisfied my changes probably wouldn’t cause any problems. Besides untangling some of the spaghetti that began to grow, what we desperately needed was testing.
 
@@ -28,13 +28,12 @@ As time went on I had more opportunities to create new services myself and to co
 
 Over the following months and years I would create a new service or inherit one from another team or engineer and see how I could add tests, metrics, alarms, and logging.
 
+![](../images/abstract-painting-empty-business-meeting-room.jpeg)
 ### False start
 As time went on, we had engineers leave and new engineers join and soon the size of our AI lab doubled in size. I started to become an expert on testing relative to the other members of the lab so I decided now was the time to start spreading my knowledge and get others to adopt these best practices.
 
 I asked the head of our AI lab for some time during our next AI lab meeting to discuss best practices for testing, answer any questions, and show other engineers examples they could use when creating tests for themselves. This seems to have been okay. There were a good amount of questions and engineers seemed interested, but as the weeks and months passed it was clear that adoption was slower than ideal.
 At this point I realized that we'd need to do something more to increase the adoption of testing, alarming, metrics, and logging among the AI Lab, but it took me a while to find out what that might be.
-
-[comment]: <> (that the best thing I could do to encourage the adoption of testing was to remove as much friction as possible, and the way I would do this is through templating.)
 
 ### Templating to the rescue
 We have a templating repo used for creating new services at Drift that uses Yeoman, a powerful yet simple tool for generating code from templates. Templating is superior to boilerplate because it minimizes the chance for errors in adapting the boilerplate code to your use case and speeds up the time to get your code created in general. If you find yourself using example repositories or modules as boilerplate for new code by copying that code over and doing a bunch of find/replace actions this is a telltale sign that you could benefit from templating instead. I found we had a template for Python FastAPI services that had been created a year before and recently refactored by another engineer, but had apparently rarely been used. How had I not heard of this before?
