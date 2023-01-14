@@ -23,7 +23,7 @@ Good model provenance is having the following information easily accessible to a
 
 Having good model provenance means you should always be able to attribute an inference to a model, and be able to know enough about that model to answer any questions you may need to in the future. You should also be able to reproduce your model if needed. The most likely scenario being training on a newer or larger dataset. 
 
-### Model registry
+### Model Registry
 The simplest way to accomplish having good model provenance as laid out in the previous section is to use an MLOps tool called the model registry. The model registry gives you a way to  keep track of every model in production (and even those in development). The model registry should also know where each of the assets for any given model are and keep track of all its metadata. This should all be available to other APIs and engineers via an API.
 
 The model registry I built at Drift is a fastAPI service with a MySQL RDS instance and an accompanying bucket in S3 which houses all the model artifacts in the registry. We use the registry for our flagship conversational AI product at Drift and so far it has scaled well. The registry receives on average a few hundred requests per minute, and around 15k requests per minute during peak times. Its ability to scale well is no doubt by virtue of it being a Kubernetes service.
@@ -37,7 +37,7 @@ The other situation in which you need data provenance might be a legal or ethica
 Being able to point to the dataset used and whether anything from source X was used is a step in the right direction, but ideally you want to be able to say which _training examples specifically_ are from source X.
 With this information you could keep the rest of the training examples and just remove or replace everything from source X.
 
-### Dataset registry	
+### Dataset Registry	
 This tool goes by different names, but I prefer to call it a data set registry because I see it as someone analogous to the model registry. Essentially, the purpose of this tool is to give you a  way to track data sets. This isn't as cut and dry as keeping a model registry for one reason, a model is atomic whereas a data set can be divided up. Also, you can change one or two things about the data set without changing anything else, but if you change one thing about a model you change everything so if there's a new model that should have a new model version ID.
 
 The simplest thing to do would be to copy this model registry design pattern and for every change you make to a data set you save out an entirely new copy of the data, and you give that new data set a new version ID. However, of course, this is extremely inefficient. There's going to be a whole range of solutions in between doing something like this and doing something very clever and efficient, but more clever solutions are going to take far more clever engineering and likely more maintenance. So in this case I would suggest going with an existing tool for data set management rather than building your own unless you have a good reason to do so. The dataset registry product I’ve been most impressed with thus far is [DVC](https://dvc.org/doc/use-cases/data-registry) (standing for Dataset Version Control). DVC is an open source solution that is built on top of Git.
