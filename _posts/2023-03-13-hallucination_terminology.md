@@ -1,4 +1,4 @@
-## Why Hallucination Is a Poor Term to Use for This Phenomenon in Generative Tasks
+## Why Hallucination Is a Poor Term to Use in Generative Task Contexts
 ![hallucinated-cpu.jpeg](/images/hallucinated-cpu.jpeg)
 
 The most noteworthy thing about ChatGPT has nothing to do with its technical details, but the rapid pace at which it took large language models (LLMs) from being esoteric to most people outside of machine learning to being the topic of dinner conversation in a matter of weeks. ChatGPT is now firmly implanted in the zeitgeist.
